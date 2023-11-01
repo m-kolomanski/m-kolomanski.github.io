@@ -60,7 +60,7 @@ class SkillMetter {
             'width': "0%",
             'height': "100%",
             'position': 'relative',
-            'top': '-2.9em',
+            'top': '-2.85em',
             'border-radius': '1.4em 0 0 1.4em',
             'transition': 'background 1s'
         });
