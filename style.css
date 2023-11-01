@@ -1,3 +1,238 @@
-div {
-    color: red;
+/* main */
+body[theme='favourite'] {
+    --main: rgb(51, 1, 85);
+    --secondary: rgb(23, 82, 0);
+    --highlight: rgb(0, 204, 51);
+    --greyed-light: rgb(221, 221, 221);
+    --text-main: black;
+}
+body[theme='greyscale'] {
+    --main: rgb(54, 54, 54);
+    --secondary: rgb(82, 82, 82);
+    --highlight: rgb(201, 201, 201);
+    --greyed-light: rgb(221, 221, 221);
+    filter: grayscale();
+}
+body[theme='outfit'] {
+    --main: #55242d;
+    --secondary: #1a2223;
+    --highlight: #9fb1af;
+    --greyed-light: rgb(221, 221, 221);
+    --text-main: black;
+}
+
+body {
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    display: flex;
+    text-align: justify;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    color: var(--main);
+    font-weight: bold;
+    font-size: 20pt;
+    letter-spacing: .05em;
+}
+
+p {
+    text-align: justify;
+    line-height: 140%;
+}
+
+a {
+    text-decoration: underline;
+    color: var(--main);
+}
+a:visited {
+    color: var(--secondary);
+}
+a:hover {
+    color: var(--highlight);
+}
+
+.highlight {
+    color: var(--highlight);
+    font-weight: bold;
+}
+
+/* general information */
+#general-info img {
+    border-radius: 2em;
+}
+
+#general-info table {
+    border-collapse: collapse;
+    width: calc(100% - 2em);
+    margin: 0 1em 0 1em;
+}
+#general-info td {
+    padding: 1em .4em .4em .4em;
+    border-bottom: .1em solid var(--secondary);
+    border-collapse: collapse;
+}
+#general-info td:nth-child(1) {
+    text-align: left;
+    font-weight: bold;
+    font-size: 12pt;
+}
+#general-info td:nth-child(2) {
+    text-align: right;
+}
+
+
+
+/* DETAILED INFORMATION */
+#detailed-info {
+    margin: 0 2em 0 2em;
+    width: 100%;
+    overflow-x: hidden;
+}
+/* navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin: .5em 0 1em 0;
+    overflow-x: auto;
+}
+
+.navbar-element {
+    font-size: 18pt;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    padding: .1em 1em .1em 1em;
+    transition: all .5s linear;
+    cursor: pointer;
+    width: -webkit-fill-available;
+}
+
+.navbar .navbar-element {
+    border-bottom: .2em solid var(--secondary);
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+}
+
+.vertical-navbar .navbar-element {
+    border-left: .2em solid var(--secondary);
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    padding: .5em 1em .5em 1em;
+}
+
+
+.navbar-element:hover,
+.navbar-element.active {
+    background-color: var(--main);
+    color: white;
+    border-color: var(--highlight);
+
+}
+
+.navbar-icon {
+    height: 1em;
+    margin-top: .1em;
+    float: right;
+}
+
+/* skill list */
+#skill-list {
+    display:inline-block;
+    width: 13rem;
+}
+#skill-list button {
+    width: 100%;
+    text-align: left;
+}
+#skill-details {
+    width: calc(100% - 18em);
+    display:inline-block;
+    margin: 0 1em 1em 1em;
+    vertical-align: top;
+}
+.skill-content {
+    width: 100%;
+    word-wrap: break-word;
+    margin: 1em;
+}
+
+#skill-meter {
+    width: 100%;
+    display: block;
+    height: 3em;
+}
+
+.techstack {
+    display: grid;
+    grid-template-columns: 40% 55%;
+}
+
+.techstack ul {
+    margin: 0;
+    padding: 0;
+}
+.techstack li {
+    list-style-type: none;
+    margin: 1em;
+    font-size: 16pt;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.techtechs {
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-row: 1em;
+    text-align: center;
+    font-size: 16pt;
+}
+
+.techtechs span {
+    height: 1.5em;
+}
+
+.techtechs .active-tech {
+    font-weight: bold;
+    color: var(--main);
+    font-size: 1.6rem;
+}
+
+.techtechs .hidden-tech {
+    color: var(--greyed-light);
+}
+
+/* history table */
+table.history h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: left;
+}
+table.history h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 14pt;
+    font-weight: normal;
+}
+table.history p {
+    margin: 0;
+    padding: 0;
+}
+table.history td {
+    padding: 1em;
+}
+table.history td:first-child {
+    min-width: 9rem;
+    text-align: right;
 }

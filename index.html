@@ -4,12 +4,250 @@
        <link rel="stylesheet" href="style.css"/>
     </head>
 
-    <body>
-        <div id="container"></div>
-        <div style = "height:400px">
+    <body theme="favourite">
+        <div id="general-info">
             <img src="./assets/my_face.jpg"  height="600"/>
+            <h1>Mateusz Kołomański</h1>
+            <table>
+                <tr><td>Date of birth</td><td>04.09.1996 (<span id='current-age'></span>y/o)</td></tr>
+                <tr><td>Place of residence</td><td>Wrocław, Poland</td></tr>
+                <tr><td>Phone number</td><td>+48 794 611 111</td></tr>
+                <tr><td>E-mail</td><td>m.kolomanski@yahoo.com</td></tr>
+                <tr><td>Theme</td><td>
+                    <select id = 'change-theme' onchange="changeTheme(this.value)">
+                        <option value="favourite" selected>Favourite</option>
+                        <option value="greyscale">Greyscale</option>
+                        <option value="outfit">Outfit</option>
+                    </select>
+                </td></tr>
+            </table>
         </div>
-        
+        <div id="detailed-info">
+            <div class="navbar">
+                <button class="navbar-element active" onclick="toggleTabs(event, 'about',      'main-content')">About me</button>
+                <button class="navbar-element"        onclick="toggleTabs(event, 'skills',     'main-content')">Skills</button>
+                <button class="navbar-element"        onclick="toggleTabs(event, 'experience', 'main-content')">Experience</button>
+                <button class="navbar-element"        onclick="toggleTabs(event, 'education',  'main-content')">Education</button>
+                <button class="navbar-element"        onclick="toggleTabs(event, 'scientific', 'main-content')">Scientific activity</button>
+                <button class="navbar-element"        onclick="toggleTabs(event, 'interests',  'main-content')">Interests</button>
+                <button class="navbar-element"        onclick="toggleTabs(event, 'projects',   'main-content')">Personal projects</button>
+            </div>
+            <div id="tab-container">
+                <div class="tab-content main-content active" id="about">
+                    <p>
+                        On a day-to-day basis I design, develop, and deploy interactive software and pipelines for data filtering,
+                        conversion, analysis, and visualization. I work closely with biologists, biophysicists and chemists on 
+                        applications that automate their workflows. I mainly code in <span class='highlight'>R</span> (Shiny) and
+                        <span class='highlight'>JavaScript</span>, but I regularly use <span class="highlight">Python</span>,
+                        <span class='highlight'>SQL</span> and Bash.<br>
+                        <br>
+                        In my free time I follow various motorsports (usually Formula 1 and endurance racing)
+                        as well as broadly defined computer games market.
+                    </p>
+                </div>
+                <div class="tab-content main-content" id="skills">
+                    <div id="skill-list" class="vertical-navbar">
+                        <button class="navbar-element" onclick="toggleTabs(event, 'R',          'skill-content'); skill_meter.setMeter('comfortable')">
+                            R <img class="navbar-icon" src="./assets/R.png"/>
+                        </button>
+                        <button class="navbar-element" onclick="toggleTabs(event, 'JavaScript', 'skill-content'); skill_meter.setMeter('intermediate')">
+                            JavaScript <img class="navbar-icon" src="./assets/javascript.png"/>
+                        </button>
+                        <button class="navbar-element" onclick="toggleTabs(event, 'Python',     'skill-content'); skill_meter.setMeter('intermediate')">Python</button>
+                        <button class="navbar-element" onclick="toggleTabs(event, 'Databases',  'skill-content'); skill_meter.setMeter('working')">Databases</button>
+                        <button class="navbar-element" onclick="toggleTabs(event, 'Data',       'skill-content'); skill_meter.setMeter('basic')">Data science</button>
+                        <button class="navbar-element" onclick="toggleTabs(event, 'Linux',      'skill-content'); skill_meter.setMeter('working')">
+                            Linux <img class="navbar-icon" src="./assets/tux.png"/>
+                        </button>
+                        <button class="navbar-element" onclick="toggleTabs(event, 'Webdev',     'skill-content'); skill_meter.setMeter('working')">Webdev</button>
+                        
+
+                    </div>
+                    <div id="skill-details">
+                        <div id="skill-meter">Click on particular skill to see details</div>
+                        <div class="tab-content skill-content" id="R">
+                            I use R for:
+                            <div class='techstack'>
+                                <div class="techlist">
+                                    <ul>
+                                        <li id="r_apps">            Application developement</li>
+                                        <li id="r_visualization">   Data visualization</li>
+                                        <li id="r_data_wrangling">  Data wrangling</li>
+                                        <li id="r_developement">    Developement</li>
+                                        <li id="r_reports">         Reporting</li>
+                                        <li id="r_statistics">      Statistical analysis</li>
+                                        
+                                        
+                                    </ul>
+                                </div>
+                                <div class="techtechs">
+                                    <span class="r_developement r_apps">              base64enc</span>
+                                    <span class="r_developement">                     devtools</span>
+                                    <span class="r_statistics">                       drc</span>
+                                    <span class="r_visualization">                    ggplot2</span>
+                                    <span class="r_visualization r_reports">          gtable</span>
+                                    <span class="r_visualization r_reports">          grid</span>
+                                    <span class="r_developement r_apps">              httr</span>
+                                    <span class="r_developement r_apps">              jsonlite</span>
+                                    <span class="r_reports">                          knitr</span>
+                                    <span class="r_data_wrangling">                   magrittr</span>
+                                    <span class="r_reports">                          officer</span>
+                                    <span class="r_developement r_apps">              openssl</span>
+                                    <span class="r_reports">                          R Markdown</span>
+                                    <span class="r_developement">                     roxygen2</span>
+                                    <span class="r_apps r_data_wrangling">            RSQLite</span>
+                                    <span class="r_apps r_reports">                   Shiny</span>
+                                    <span class="r_statistics">                       stat</span>
+                                    <span class="r_data_wrangling">                   tidyverse</span>
+                                    <span class="r_data_wrangling r_reports">         XLConnect</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content skill-content" id="JavaScript">
+                            Most of the times I use <span class="highlight">vanilla JavaScript</span> to enchance applications build using frameworks like <span class="highlight">Shiny</span>
+                            or <span class="highlight">Dash</span>, but I also have experience building responsive,
+                            multi-page applications from scratch. I am comfortable with managing <span class="highlight">DOM</span> using <span class="highlight">E6</span>, handling events,
+                            performing asynchronous requests and leveraging cookies for tracking connections and requests as well as local storage for user-specific options. I can create simple
+                            <span class="highlight">React</span> components for usage in other frameworks.<br>
+                            <br>
+                            I am familiar with <span class="highlight">Node.js</span>, <span class="highlight">Next.js</span>, <span class="highlight">React</span>, <span class="highlight">TypeScript</span>
+                            and <span class="highlight">Electron</span>. I have dabbled with those technologies while creating micro-applications for personal use, although I do not have much
+                            professional experience.
+                        </div>
+                        <div class="tab-content skill-content" id="Python">
+                            Page about python
+                        </div>
+                        <div class="tab-content skill-content" id="Databases">
+                            I have experience designing and managing databases storing various data: from user information, privilages and tokens, through inventory state and order logs,
+                            to scientific data from biological and biophysics assays. I am comfortable with making SQL queries (including filtering, joining, updating and inserting data),
+                            as well as creating custom APIs in Python, R or JavaScript.<br>
+                            <br>
+                            At my current job I manage various databases, both internal and externally provided. I curate the quality of imported data, manage user access, take care of
+                            security, backups and validation.
+                        </div>
+                        <div class="tab-content skill-content" id="Linux">
+                            <div style = 'display:grid;grid-template-columns: 45% 45%; column-gap: 10%; text-align:center;'>
+                                <div>
+                                    <h1>Bash</h1>
+                                    <p>
+                                        I can write simple bash scripts for mundane tasks like moving and renaming
+                                        files, as well as automating pipielines spanning multiple different tools and 
+                                        converting output/input files. Sometimes I use bash for extended regex capabilities
+                                        and parsing or extracting specific information from custom format files, e.g. 
+                                        synchrotron results files.<br>
+                                        <br>
+                                        Tools I am familiar with include grep, sed, awk, cron.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h1>Devops</h1>
+                                    <p>
+                                        I use Ubuntu almost daily, it is my preferred operating system for programming.
+                                    </p>
+                                    <p>
+                                        I have experience managing Ubuntu-based servers hosting Shiny and Dash applications,
+                                        custom services based on Node.js and Gunicorn, running periodical tasks, managing network
+                                        drives, accessing external services and hosting databases.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content skill-content" id="Webdev">
+                            WIP
+                        </div>
+                        <div class="tab-content skill-content" id="Data">
+                            WIP
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tab-content main-content" id="experience">
+                    <table class="history">
+                        <tbody>
+                            <tr>
+                                <td>VI 2021 - currently</td>
+                                <td>
+                                    <h1>Bioinformatician</h1>
+                                    <h2>Captor Therapeutics S.A.</h2>
+                                    <p>
+                                        Designing and developing software for data wrangling, analysis and visualization, conducting
+                                        biostatistical analyses, administering databases.
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>X 2019 - XI 2019</td>
+                                <td>
+                                    <h1>Bioinformatician</h1>
+                                    <h2>Department of Genetics, University of Environmental Sciences in Wrocław</h2>
+                                    <p>
+                                        Performing quantification and differential gene expression analysis on RNA-seq data; searching, downloading and
+                                        filtering data; performing analysis with bioinformatical and statistical tools.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-content main-content" id="education">
+                    <table class="history">
+                        <tbody>
+                            <tr>
+                                <td>X 2018 – VII 2020</td>
+                                <td>
+                                    <h1>University of Environmental and Life Sciences in Wrocław</h1>
+                                    <h2>Laboratory Techniques in Biology, MSc</h2>
+                                    <p>
+                                        Thesis: DNA sequence features underlying large-scale duplications and deletions in human
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>X 2015 – VI 2018</td>
+                                <td>
+                                    <h1>University of Environmental and Life Sciences in Wrocław</h1>
+                                    <h2>Human Biology, BSc</h2>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-content main-content" id="scientific">
+                    <table class="history">
+                        <tbody>
+                            <tr>
+                                <td>20 V 2022</td>
+                                <td>
+                                    <h1>DNA sequence features underlying large-scale duplications and deletions in human</h1>
+                                    <h2>M. Kołomański, J. Szyda, M. Frąszczak, M. Mielczarek</h2>
+                                    <p>
+                                        Journal of Applied Genetics<br>
+                                        <a href="https://doi.org/10.1007/s13353-022-00704-0" target="_blank">https://doi.org/10.1007/s13353-022-00704-0</a>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>XII 2019 - XI 2020</td>
+                                <td>
+                                    <h1>Student Research Group of Bioinformaticians</h1>
+                                    <h2>University of Environmental and Life Sciences in Wrocław</h2>
+                                    <p>
+                                        Project regarding impact of NGS data filtering on results of differential analysis of gene expression.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-content main-content" id="interests">
+                    WIP
+                </div>
+                <div class="tab-content main-content" id="projects">
+                    WIP
+                </div>
+
+            </div>
+        </div>
         <script src="index.js"></script>
     </body>
 </html>
