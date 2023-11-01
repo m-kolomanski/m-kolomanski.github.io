@@ -272,3 +272,18 @@ table.history td:first-child {
         font-size: 10pt;
     }
 }
+
+@media only screen and (max-width: 620px) {
+    /* For mobile phones: */
+    body {
+        justify-items: center;
+        display: block;
+    }
+    #general-info {
+        width: 100%;
+    }
+    #detailed-info {
+        width: 90%
+    }
+
+  }
